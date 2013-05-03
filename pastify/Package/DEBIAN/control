@@ -1,0 +1,17 @@
+Package: bz.tsung.jb.actionmenu.pastify
+Name: pastify
+Version: 0.1-1
+Description: 
+Section: Addons (Action Menu)
+Depends: firmware (>= 5.0),  actionmenu
+Conflicts: 
+Replaces: 
+Priority: optional
+Architecture: iphoneos-arm
+Author: tsung
+dev: 
+Homepage: 
+Depiction: 
+Maintainer: 
+Icon: 
+
