@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1C820826312452DACFE6308 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1089BDEC428442DD9F9B743A /* libPods.a */; };
 		E7B00E3A1733CF07000C7884 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7B00E391733CF07000C7884 /* Foundation.framework */; };
 		E7B00E3C1733CF07000C7884 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7B00E3B1733CF07000C7884 /* UIKit.framework */; };
 		E7B00E461733CF07000C7884 /* pastify.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B00E451733CF07000C7884 /* pastify.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1089BDEC428442DD9F9B743A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		345D1EE74F5A43CC99430CBD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		E7B00E361733CF07000C7884 /* pastify.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = pastify.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B00E391733CF07000C7884 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E7B00E3B1733CF07000C7884 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -31,6 +34,7 @@
 			files = (
 				E7B00E3A1733CF07000C7884 /* Foundation.framework in Frameworks */,
 				E7B00E3C1733CF07000C7884 /* UIKit.framework in Frameworks */,
+				A1C820826312452DACFE6308 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +47,7 @@
 				E7B00E3D1733CF07000C7884 /* pastify */,
 				E7B00E381733CF07000C7884 /* Frameworks */,
 				E7B00E371733CF07000C7884 /* Products */,
+				345D1EE74F5A43CC99430CBD /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,6 +64,7 @@
 			children = (
 				E7B00E391733CF07000C7884 /* Foundation.framework */,
 				E7B00E3B1733CF07000C7884 /* UIKit.framework */,
+				1089BDEC428442DD9F9B743A /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -141,10 +147,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7B00E4D1733CF07000C7884 /* Build configuration list for PBXNativeTarget "pastify" */;
 			buildPhases = (
+				F5A26210987E4AF2A6DFF170 /* Check Pods Manifest.lock */,
 				E7B00E311733CF07000C7884 /* Sources */,
 				E7B00E321733CF07000C7884 /* Frameworks */,
 				E7B00E331733CF07000C7884 /* Headers */,
 				E7B00E341733CF07000C7884 /* ShellScript */,
+				F5DE41EBAE4C480D92D7B334 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -161,7 +169,9 @@
 		E7B00E2D1733CF07000C7884 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = BZ;
 				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Tsung W.<tsung.bz@gmail.com>";
 			};
 			buildConfigurationList = E7B00E301733CF07000C7884 /* Build configuration list for PBXProject "pastify" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -193,6 +203,34 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+		F5A26210987E4AF2A6DFF170 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		F5DE41EBAE4C480D92D7B334 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -266,17 +304,22 @@
 		};
 		E7B00E4E1733CF07000C7884 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 345D1EE74F5A43CC99430CBD /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "pastify/pastify-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"${PODS_HEADERS_SEARCH_PATHS}",
+					"$(iOSOpenDevPath)/include/**",
+				);
 				INSTALL_PATH = /Library/ActionMenu/Plugins;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = "";
+				iOSOpenDevDevice = 10.10.10.10;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
@@ -286,17 +329,22 @@
 		};
 		E7B00E4F1733CF07000C7884 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 345D1EE74F5A43CC99430CBD /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "pastify/pastify-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"${PODS_HEADERS_SEARCH_PATHS}",
+					"$(iOSOpenDevPath)/include/**",
+				);
 				INSTALL_PATH = /Library/ActionMenu/Plugins;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = "";
+				iOSOpenDevDevice = 10.10.10.10;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
@@ -323,6 +371,7 @@
 				E7B00E4F1733CF07000C7884 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
